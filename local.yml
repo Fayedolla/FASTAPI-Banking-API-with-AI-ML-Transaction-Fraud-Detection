@@ -14,7 +14,7 @@ services:
 
 networks:
   nextgen_local_nw:
-  external: true
+    external: true
 
 volumes:
   nextgen_local_db:
