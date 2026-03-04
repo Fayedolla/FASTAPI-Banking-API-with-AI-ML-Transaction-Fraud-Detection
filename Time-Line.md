@@ -17,12 +17,12 @@
 
 ## ⚙️ Environment Setup & FastAPI Basics
 
-- [ ] 06:31 Create a Virtual Environment  
-- [ ] 05:21 Install Packages  
-- [ ] 04:16 Setup Git  
-- [ ] 04:40 Create a simple API with FastAPI  
-- [ ] 07:29 Routes Folder Structure  
-- [ ] 08:28 Config Settings  
+- [x] 06:31 Create a Virtual Environment  
+- [x] 05:21 Install Packages  
+- [x] 04:16 Setup Git  
+- [x] 04:40 Create a simple API with FastAPI  
+- [x] 07:29 Routes Folder Structure  
+- [x] 08:28 Config Settings  
 - [ ] 02:02 Intro to Logging  
 - [ ] 13:31 Install and Setup Loguru  
 
