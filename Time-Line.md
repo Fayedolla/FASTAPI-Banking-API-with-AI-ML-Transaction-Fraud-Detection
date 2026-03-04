@@ -31,11 +31,11 @@
 ## 🐳 Docker, Traefik & Infrastructure
 
 - [x] 09:43 Postgres Dockerfile Config  
-- [ ] 09:50 Configure Postgres Environment Variables  
-- [ ] 09:25 Initialize DB  
-- [ ] 02:35 Traefik Theory (Reverse Proxy / Load Balancer)  
-- [ ] 06:18 Traefik Config  
-- [ ] 04:23 Start Script & Dockerfile (Part 1)  
+- [x] 09:50 Configure Postgres Environment Variables  
+- [x] 09:25 Initialize DB  
+- [x] 02:35 Traefik Theory (Reverse Proxy / Load Balancer)  
+- [x] 06:18 Traefik Config  
+- [x] 04:23 Start Script & Dockerfile (Part 1)  
 - [ ] 06:19 Dockerfile Multi-Stage Build (Part 1)  
 - [ ] 09:39 Dockerfile Multi-Stage Build (Part 2)  
 - [ ] 08:48 Dockerfile Continued  
