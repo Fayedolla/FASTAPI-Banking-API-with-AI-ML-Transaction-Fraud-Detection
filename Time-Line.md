@@ -23,14 +23,14 @@
 - [x] 04:40 Create a simple API with FastAPI  
 - [x] 07:29 Routes Folder Structure  
 - [x] 08:28 Config Settings  
-- [ ] 02:02 Intro to Logging  
-- [ ] 13:31 Install and Setup Loguru  
+- [x] 02:02 Intro to Logging  
+- [x] 13:31 Install and Setup Loguru  
 
 ---
 
 ## 🐳 Docker, Traefik & Infrastructure
 
-- [ ] 09:43 Postgres Dockerfile Config  
+- [x] 09:43 Postgres Dockerfile Config  
 - [ ] 09:50 Configure Postgres Environment Variables  
 - [ ] 09:25 Initialize DB  
 - [ ] 02:35 Traefik Theory (Reverse Proxy / Load Balancer)  
