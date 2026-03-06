@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     RABBITMQ_HOST: str = "rabbitmq"
     RABBITMQ_PORT: int = 5672
     RABBITMQ_USER: str = "guest"
-    RABBOTMQ_PASSWORD: str = "guest"
+    RABBITMQ_PASSWORD: str = "guest"
     
 
 settings = Settings()
