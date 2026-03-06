@@ -36,12 +36,12 @@
 - [x] 02:35 Traefik Theory (Reverse Proxy / Load Balancer)  
 - [x] 06:18 Traefik Config  
 - [x] 04:23 Start Script & Dockerfile (Part 1)  
-- [ ] 06:19 Dockerfile Multi-Stage Build (Part 1)  
-- [ ] 09:39 Dockerfile Multi-Stage Build (Part 2)  
-- [ ] 08:48 Dockerfile Continued  
-- [ ] 06:40 Entrypoint Shell Script  
-- [ ] 13:00 .dockerignore & Docker Compose  
-- [ ] 08:43 Build Containers  
+- [x] 06:19 Dockerfile Multi-Stage Build (Part 1)  
+- [x] 09:39 Dockerfile Multi-Stage Build (Part 2)  
+- [x] 08:48 Dockerfile Continued  
+- [x] 06:40 Entrypoint Shell Script  
+- [x] 13:00 .dockerignore & Docker Compose  
+- [x] 08:43 Build Containers  
 
 ---
 

@@ -1,4 +1,4 @@
-api: 
+api:
   dashboard: true
   insecure: true
 
@@ -14,14 +14,14 @@ middlewares:
   retry:
     retry:
       attempts: 3
-      initialInterval: "500ms"
+      initialInterval: 500ms
 
 providers:
   docker:
     endpoint: "unix:///var/run/docker.sock"
     watch: true
     exposedByDefault: false
-    networks: nextgen_local_nw
+    network: nextgen_local_nw
 
 entryPoints:
   web:
