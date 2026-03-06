@@ -47,20 +47,20 @@
 
 ## 🔄 Celery, Redis & Async Tasks
 
-- [ ] 03:39 Celery & Redis Intro  
-- [ ] 03:31 Email Settings Config  
-- [ ] 09:11 Celery Config  
-- [ ] 07:57 Flower & Celery Start Scripts  
-- [ ] 04:01 Update .env & Dockerfile  
-- [ ] 08:48 Docker Compose (Celery, Redis, RabbitMQ)  
-- [ ] 05:18 Build Containers  
-- [ ] 02:11 Container Race Conditions  
+- [x] 03:39 Celery & Redis Intro  
+- [x] 03:31 Email Settings Config  
+- [x] 09:11 Celery Config  
+- [x] 07:57 Flower & Celery Start Scripts  
+- [x] 04:01 Update .env & Dockerfile  
+- [x] 08:48 Docker Compose (Celery, Redis, RabbitMQ)  
+- [x] 05:18 Build Containers  
+- [x] 02:11 Container Race Conditions  
 
 ---
 
 ## ❤️ Health Checks & Stability
 
-- [ ] 07:53 Health Checks (Part 1)  
+- [x] 07:53 Health Checks (Part 1)  
 - [ ] 05:58 Health Checks (Part 2)  
 - [ ] 04:33 Health Checks (Part 3)  
 - [ ] 09:17 Health Checks (Part 4)  
