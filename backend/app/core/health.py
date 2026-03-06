@@ -37,3 +37,36 @@ class HealthCheck:
         for dep in depends_on:
             if dep not in self._services:
                 raise ValueError(f"Dependency '{dep}' not registered for service '{service_name}'")
+
+    async def add_service(
+        self, service_name: str, check_function: Callable[[], Awaitable[bool]],
+        timeout: float = 5.0, retry_delay: float = 1.0, max_retries: int = 3,
+        depends_on: list[str] | None = None) -> None:
+
+        self._services[service_name] = ServiceStatus.STARTING
+        self._check_function[service_name] = check_function
+        self._timeout[service_name] = timeout
+        self._retry_delays[service_name] = retry_delay
+        self._max_retries[service_name] = max_retries
+        self._last_check[service_name] = datetime.now(timezone.utc)
+
+        if depends_on:
+            await self.validate_dependencies(service_name, depends_on)
+            self._dependencies[service_name] = set(depends_on)
+            logger.info(
+                f"Service '{service_name}' registered with dependencies: '{depends_on}'"
+            ) 
+    
+    async def check_database(self) -> bool:
+        try: 
+            # TODO: load models
+            # TODO: add logger info
+            async with async_session() as session:
+                await session.executre(text("SELECT 1"))
+                await session.commit()
+                
+                self._last_check["database"] = datetime.now(timezone.utc)
+                return True
+        except Exception as e:
+            logger.error(f"Database health check failed {e}")
+            return False
