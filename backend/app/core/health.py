@@ -68,5 +68,39 @@ class HealthCheck:
                 self._last_check["database"] = datetime.now(timezone.utc)
                 return True
         except Exception as e:
-            logger.error(f"Database health check failed {e}")
+            logger.error(f"Database health check failed: {e}")
+            return False
+    
+    async def check_redis(self) -> bool:
+        try: 
+            redis_client = celery_app.backend.client
+            redis_client.ping()
+            self._last_check["redis"] = datetime.now(timezone.utc)
+            return True
+        except Exception as e:
+            logger.error(f"Redis health check failed: {e}")
+            return False
+    
+    async def check_celery(self) -> bool:
+        try:
+            inspect = celery_app.control.inspect()
+            workers = inspect.ping()
+
+            if not workers:
+                conn = celery_app.connection()
+                try: 
+                    conn.ensure_connection(max_retries=3)
+                    logger.warning("No celery workers found, but RabbitMQ is reachable")
+                    self._last_check["celery"] = datetime.now(timezone.utc)
+                    return True
+                except Exception as e:
+                    logger.error(f"RabbitMQ connection failed: {e}")
+                    return False
+                finally:
+                    conn.close()
+            
+            self._last_check["celery"] = datetime.now(timezone.utc)
+            return True
+        except Exception as e:
+            logger.error(f"Celery health check failed: {e}")
             return False
