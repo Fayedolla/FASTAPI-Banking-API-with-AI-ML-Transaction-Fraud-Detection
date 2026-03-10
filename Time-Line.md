@@ -61,11 +61,14 @@
 ## ❤️ Health Checks & Stability
 
 - [x] 07:53 Health Checks (Part 1)  
-- [ ] 05:58 Health Checks (Part 2)  
-- [ ] 04:33 Health Checks (Part 3)  
-- [ ] 09:17 Health Checks (Part 4)  
-- [ ] 05:21 Health Checks (Part 5)  
-- [ ] 03:33 Health Checks (Part 6)  
+- [x] 05:58 Health Checks (Part 2)  
+- [x] 04:33 Health Checks (Part 3)  
+- [x] 09:17 Health Checks (Part 4)  
+- [x] 05:21 Health Checks (Part 5)  
+- [x] 03:33 Health Checks (Part 6)  
+- [ ] 09:28 Amend Db.py
+- [ ] 13:17 Amend Main.py
+- [ ] 07:04 Amend local.yml, Build containers
 
 ---
 

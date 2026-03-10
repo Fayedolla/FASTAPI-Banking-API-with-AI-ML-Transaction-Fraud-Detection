@@ -1,2 +1,2 @@
-2026-03-06 13:44:56.848 | ERROR    |backend.app.api.routes.home:home:12 - Home page accessed
-2026-03-06 13:44:56.848 | CRITICAL |backend.app.api.routes.home:home:14 - Home page accessed
+2026-03-10 20:36:47.130 | ERROR    |backend.app.core.health:check_broker:118 - RabbitMQ connection failed: [Errno 111] Connection refused
+2026-03-10 20:44:02.481 | ERROR    |backend.app.core.health:check_broker:118 - RabbitMQ connection failed: [Errno 111] Connection refused
