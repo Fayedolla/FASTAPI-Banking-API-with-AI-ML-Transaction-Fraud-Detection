@@ -66,17 +66,17 @@
 - [x] 09:17 Health Checks (Part 4)  
 - [x] 05:21 Health Checks (Part 5)  
 - [x] 03:33 Health Checks (Part 6)  
-- [ ] 09:28 Amend Db.py
-- [ ] 13:17 Amend Main.py
-- [ ] 07:04 Amend local.yml, Build containers
+- [x] 09:28 Amend Db.py
+- [x] 13:17 Amend Main.py
+- [x] 07:04 Amend local.yml, Build containers
 
 ---
 
 ## 👤 User Management & Authentication
 
-- [ ] 07:14 User Schema (Part 1)  
-- [ ] 06:39 User Schema (Part 2)  
-- [ ] 08:13 User Model  
+- [x] 07:14 User Schema (Part 1)  
+- [x] 06:39 User Schema (Part 2)  
+- [x] 08:13 User Model  
 - [ ] 07:52 Model Registry  
 - [ ] 03:31 Alembic Config  
 - [ ] 06:06 Run Migrations  

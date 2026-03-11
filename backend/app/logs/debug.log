@@ -119,3 +119,85 @@
 2026-03-10 20:44:09.480 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
 2026-03-10 20:44:09.481 | INFO     |backend.app.core.health:check_service_health:173 - Service 'celery' recovered after 3 attempts
 2026-03-10 20:44:09.481 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 21:20:32.246 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 21:20:44.224 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 21:20:44.225 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 21:20:45.396 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 21:20:45.397 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 21:21:13.040 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 21:21:15.580 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 21:21:15.580 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 21:21:16.768 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 21:21:16.769 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 21:21:42.813 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 21:21:44.636 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 21:21:44.636 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 21:21:45.753 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 21:21:45.754 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 21:21:52.570 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 21:21:54.879 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 21:21:54.880 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 21:21:56.043 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 21:21:56.043 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 21:22:04.120 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 21:22:06.241 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 21:22:06.241 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 21:22:07.425 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 21:22:07.426 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 23:49:57.997 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 23:50:00.718 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 23:50:00.718 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 23:50:01.971 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 23:50:01.971 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 23:51:09.861 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 23:51:12.595 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 23:51:12.595 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 23:51:13.781 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-10 23:51:13.782 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-10 23:52:32.001 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-10 23:52:34.112 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-10 23:52:34.112 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-10 23:52:35.259 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 00:03:38.370 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 00:03:40.982 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 00:03:40.982 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 00:03:42.192 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 00:03:42.193 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 00:11:48.429 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 00:11:50.324 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 00:11:50.324 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 00:11:51.459 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 00:11:51.460 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 00:13:09.841 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 00:13:11.632 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 00:13:11.633 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 00:13:12.769 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 00:13:12.770 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 00:15:08.702 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 00:15:11.615 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 00:15:11.616 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 00:15:12.734 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 00:15:12.734 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 00:15:59.176 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 00:16:01.091 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 00:16:01.092 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 00:16:02.237 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 00:16:02.237 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 14:35:55.057 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 14:35:57.037 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 14:35:57.038 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 14:35:58.169 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 14:37:58.890 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 14:38:01.425 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 14:38:01.426 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 14:38:02.626 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 14:38:02.627 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 14:38:09.946 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 14:38:12.175 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 14:38:12.175 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 14:38:13.353 | WARNING  |backend.app.core.health:check_celery:132 - No celery workers found, but RabbitMQ is reachable
+2026-03-11 14:38:13.354 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
+2026-03-11 14:49:46.341 | INFO     |backend.app.main:lifespan:68 - Shutting down application...
+2026-03-11 14:49:48.519 | INFO     |backend.app.core.db:init_db:55 - Database connection verified successfully
+2026-03-11 14:49:48.519 | INFO     |backend.app.main:lifespan:50 - Database initialized successfully
+2026-03-11 14:49:49.661 | INFO     |backend.app.main:lifespan:58 - All services initialized and healthy
