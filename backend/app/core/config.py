@@ -33,6 +33,11 @@ class Settings(BaseSettings):
     OTP_EXPIRATION_MINUTES: int = 2 if ENVIRONMENT == "local" else 5
     LOGING_ATTEMPTS: int = 3
     LOCKOUT_DURATION_MINUTES: int = 2 if ENVIRONMENT == "local" else 5
+    ACTIVATION_TOKEN_EXPIRATION_MINUTES: int = 2 if ENVIRONMENT == "local" else 5
+    API_BASE_URL: str = ""
+    SUPPORT_EMAIL: str = ""
+    JWT_SECRET_KEY: str = ""
+    JWT_ALGORITHM: str = "HS256"
 
 
 settings = Settings()
