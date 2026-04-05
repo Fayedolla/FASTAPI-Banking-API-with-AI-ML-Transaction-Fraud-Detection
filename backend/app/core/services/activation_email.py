@@ -10,7 +10,7 @@ class ActivationEmail(EmailTemplate):
 
 async def send_activation_email(email: str, token: str) -> None:
     activation_url = (
-        f"{settings.API_BASE_URL}{settings.API_V1_STR}/auth/activate{token}"
+        f"{settings.API_BASE_URL}{settings.API_V1_STR}/auth/activate/{token}"
     )
 
     context = {

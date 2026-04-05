@@ -2,7 +2,7 @@ import asyncio
 from backend.app.core.celery_app import celery_app
 from fastapi_mail import MessageSchema, MessageType, MultipartSubtypeEnum
 from backend.app.core.logging import get_logger
-from backend.app.core.email.config import fastemail
+from backend.app.core.emails.config import fastemail
 
 logger = get_logger()
 

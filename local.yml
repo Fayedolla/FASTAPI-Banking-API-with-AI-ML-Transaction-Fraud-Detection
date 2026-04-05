@@ -70,6 +70,21 @@ services:
     networks:
       - nextgen_local_nw
   
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - nextgen_pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - nextgen_local_nw
+
   redis: 
     image: docker.io/redis:7.0-alpine
     command: redis-server --appendonly yes
@@ -129,4 +144,4 @@ volumes:
   nextgen_mailpit_data:
   nextgen_flower_data:
   nextgen_rabbitmq_data:
-    
+  nextgen_pgadmin_data:

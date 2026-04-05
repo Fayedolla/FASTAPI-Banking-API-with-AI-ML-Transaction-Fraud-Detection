@@ -14,7 +14,6 @@ email_conf = ConnectionConfig(
     MAIL_PASSWORD=SecretStr(""),
     MAIL_SSL_TLS=False,
     MAIL_STARTTLS=False,
-    USER_CREDENTIALS=False,
     VALIDATE_CERTS=False,
     TEMPLATE_FOLDER=TEMPLATES_DIR,
 )
