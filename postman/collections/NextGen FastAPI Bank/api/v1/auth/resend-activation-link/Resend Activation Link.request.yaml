@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/auth/resend-activation-link"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "H0PrcG9S@YzUgTbYriWwMG.hnfo"
+    }
+examples: ./.resources/Resend Activation Link.resources/examples
+order: 1000

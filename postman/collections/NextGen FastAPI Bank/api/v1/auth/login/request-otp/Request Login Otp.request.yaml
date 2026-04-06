@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/auth/login/request-otp"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "qF1ugHR34T4k@HgBr.ivj",
+      "password": "stringstring"
+    }
+examples: ./.resources/Request Login Otp.resources/examples
+order: 1000

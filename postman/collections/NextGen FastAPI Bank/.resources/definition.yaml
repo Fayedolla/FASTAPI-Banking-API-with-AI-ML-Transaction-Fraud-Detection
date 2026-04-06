@@ -1,0 +1,4 @@
+$kind: collection
+description: Welcome to the Next Generation of banking with FastAPI
+variables:
+  baseUrl: /

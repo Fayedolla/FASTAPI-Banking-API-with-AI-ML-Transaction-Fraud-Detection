@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/auth/activate/:token"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  token: string
+examples: ./.resources/Activate User.resources/examples
+order: 1000

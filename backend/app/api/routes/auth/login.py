@@ -32,8 +32,8 @@ async def request_login_otp(
                 if remaining_attempts > 0:
                     error_message = (
                         f"Invalid credentials. You have {remaining_attempts}"
-                        f"attempt{'s' if remaining_attempts != 1 else ''} remaining before"
-                        "your account is temporarily locked."
+                        f" attempt{'s' if remaining_attempts != 1 else ''} remaining before"
+                        " your account is temporarily locked."
                     )
                 else:
                     error_message = (

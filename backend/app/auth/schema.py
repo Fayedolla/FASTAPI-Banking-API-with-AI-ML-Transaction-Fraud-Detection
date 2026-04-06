@@ -2,6 +2,7 @@ from enum import Enum
 from sqlmodel import SQLModel, Field
 from sqlalchemy import BigInteger
 from pydantic import EmailStr, field_validator
+from fastapi import HTTPException, status
 import uuid
 
 
@@ -92,3 +93,30 @@ class OTPVerifyRequestSchema(SQLModel):
         min_length=6,
         max_length=6,
     )
+
+
+class PasswordResetRequestSchema(SQLModel):
+    email: EmailStr
+
+
+class PasswordResetConfirmSchema(SQLModel):
+    new_password: str = Field(..., min_length=8, max_length=40)
+
+    confirm_password: str = Field(
+        ...,
+        min_length=8,
+        max_length=40,
+    )
+
+    @field_validator("confirm_password")
+    def validate_password_match(cls, v, values):
+        if "new_password" in values.data and v != values.data["new_password"]:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={
+                    "status": "error",
+                    "message": "Passwords do not match",
+                    "action": "Please ensure that the passwords you entered match",
+                },
+            )
+        return v

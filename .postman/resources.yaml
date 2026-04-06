@@ -1,0 +1,13 @@
+# Use this workspace to collaborate
+workspace:
+  id: 95f3cacc-2f4f-45ed-b8df-ddbca926cae8
+
+cloudResources:
+  collections:
+    ..\postman\collections\NextGen FastAPI Bank: b88b9f9f-f5c7-4261-a76e-e7e800e614d0
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/
