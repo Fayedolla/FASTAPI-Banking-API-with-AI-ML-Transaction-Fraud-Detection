@@ -9,7 +9,7 @@ from backend.app.api.services.user_auth import user_auth_service
 
 logger = get_logger()
 
-router = APIRouter(prefix="/auth")
+router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 
 @router.post("/login/request-otp", status_code=status.HTTP_200_OK)
