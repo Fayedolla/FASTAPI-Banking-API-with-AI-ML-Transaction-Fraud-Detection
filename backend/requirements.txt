@@ -39,6 +39,7 @@ celery==5.3.6
     #   flower
 certifi==2026.2.25
     # via
+    #   cloudinary
     #   httpcore
     #   httpx
     #   sentry-sdk
@@ -61,6 +62,8 @@ click-plugins==1.1.1.2
     # via celery
 click-repl==0.3.0
     # via celery
+cloudinary==1.44.1
+    # via banking-api
 colorama==0.4.6 ; sys_platform == 'win32'
     # via
     #   click
@@ -143,6 +146,12 @@ mdurl==0.1.2
     # via markdown-it-py
 packaging==26.0
     # via kombu
+phonenumbers==9.0.27
+    # via
+    #   banking-api
+    #   pydantic-extra-types
+pillow==12.2.0
+    # via banking-api
 prometheus-client==0.24.1
     # via flower
 prompt-toolkit==3.0.52
@@ -157,6 +166,8 @@ pwdlib==0.3.0
     # via banking-api
 pyaes==1.6.1
     # via fernet
+pycountry==26.2.16
+    # via banking-api
 pycparser==3.0 ; implementation_name != 'PyPy'
     # via cffi
 pydantic==2.12.5
@@ -170,7 +181,9 @@ pydantic==2.12.5
 pydantic-core==2.41.5
     # via pydantic
 pydantic-extra-types==2.11.0
-    # via fastapi
+    # via
+    #   banking-api
+    #   fastapi
 pydantic-settings==2.7.0
     # via
     #   banking-api
@@ -189,7 +202,9 @@ python-dotenv==1.2.2
     #   pydantic-settings
     #   uvicorn
 python-multipart==0.0.22
-    # via fastapi
+    # via
+    #   banking-api
+    #   fastapi
 pytz==2026.1.post1
     # via flower
 pyyaml==6.0.3
@@ -215,7 +230,9 @@ sentry-sdk==2.54.0
 shellingham==1.5.4
     # via typer
 six==1.17.0
-    # via python-dateutil
+    # via
+    #   cloudinary
+    #   python-dateutil
 sqlalchemy==2.0.48
     # via
     #   alembic
@@ -253,7 +270,9 @@ tzdata==2025.3
     #   kombu
     #   psycopg
 urllib3==2.6.3
-    # via sentry-sdk
+    # via
+    #   cloudinary
+    #   sentry-sdk
 uvicorn==0.41.0
     # via
     #   fastapi

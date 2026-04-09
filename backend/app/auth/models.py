@@ -1,13 +1,17 @@
 import uuid
 from datetime import datetime, timezone
-from sqlmodel import Field, Column, SQLModel
+from sqlmodel import Field, Column, Relationship
 from pydantic import computed_field
 from sqlalchemy.dialects import postgresql as pg
-from sqlalchemy import ForeignKey, text
+from sqlalchemy import text
 from backend.app.auth.schema import (
     BaseUserSchema,
     RoleChoicesSchema,
 )  # ✅ fixed import name
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from backend.app.user_profile.models import Profile
 
 
 class User(BaseUserSchema, table=True):
@@ -42,6 +46,14 @@ class User(BaseUserSchema, table=True):
             server_default=text("CURRENT_TIMESTAMP"),
             onupdate=text("CURRENT_TIMESTAMP"),  # ✅ fixed
         ),
+    )
+
+    profile: "Profile" = Relationship(
+        back_populates="user",
+        sa_relationship_kwargs={
+            "uselist": False,
+            "lazy": "selectin",
+        },
     )
 
     @computed_field

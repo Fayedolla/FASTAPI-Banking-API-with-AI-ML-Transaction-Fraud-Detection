@@ -10,6 +10,10 @@ down:
 down-v:
 	docker compose -f local.yml down -v
 
+rebuild:
+	docker compose -f local.yml build --no-cache
+	docker compose -f local.yml up -d --remove-orphans
+
 nextgen-config:
 	docker compose -f local.yml config
 
@@ -47,4 +51,4 @@ shell:
 	docker compose -f local.yml exec -it api bash
 
 exp-req:
-	docker compose -f local.yml exec -T api uv export --format requirements.txt > requirements.txt
+	uv export --format requirements-txt --no-hashes > backend/requirements.txt
