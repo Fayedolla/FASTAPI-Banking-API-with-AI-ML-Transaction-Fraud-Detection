@@ -19,6 +19,10 @@ from backend.app.core.services.account_lockout import send_account_lockout_email
 from backend.app.core.config import settings
 from backend.app.core.logging import get_logger
 from backend.app.core.services.login_otp import send_login_otp_email
+import pyotp
+from backend.app.auth.utils import encrypt_totp_secret, decrypt_totp_secret
+from backend.app.core.services.totp_email import send_totp_enabled_email
+from backend.app.auth.schema import LoginTOTPRequestSchema
 
 logger = get_logger()
 
@@ -413,6 +417,144 @@ class UserAuthService:
         except Exception as e:
             logger.error(f"Failed to reset password: {str(e)}")
             raise
+
+    async def setup_totp(
+        self, user: User, password: str, session: AsyncSession
+    ) -> dict:
+        try:
+            if not await self.verify_user_password(password, user.hashed_password):
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail={"status": "error", "message": "Invalid credentials"},
+                )
+            if user.is_totp_enabled:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Two-Factor Authentication is already enabled.",
+                )
+
+            # Generate, encrypt, and save
+            raw_secret = pyotp.random_base32()
+            user.totp_secret = encrypt_totp_secret(raw_secret)
+
+            await session.commit()
+            await session.refresh(user)
+
+            # Generate URI
+            uri = pyotp.totp.TOTP(raw_secret).provisioning_uri(
+                name=user.email, issuer_name=settings.SITE_NAME
+            )
+
+            return {"secret": raw_secret, "provisioning_uri": uri}
+        except Exception as e:
+            logger.error(f"Failed to setup TOTP: {str(e)}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail={
+                    "status": "error",
+                    "message": "Failed to setup TOTP",
+                    "action": "Please try again later",
+                },
+            )
+
+    async def enable_totp(self, user: User, otp: str, session: AsyncSession) -> None:
+        try:
+            if not user.totp_secret:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="TOTP setup not initiated.",
+                )
+            if user.is_totp_enabled:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="TOTP is already enabled.",
+                )
+
+            # Decrypt and verify
+            raw_secret = decrypt_totp_secret(user.totp_secret)
+            totp = pyotp.TOTP(raw_secret)
+
+            if not totp.verify(otp):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid TOTP code."
+                )
+
+            # Enable and save
+            user.is_totp_enabled = True
+            await session.commit()
+            await session.refresh(user)
+
+            # Send alert email
+            await send_totp_enabled_email(user.email)
+        except Exception as e:
+            logger.error(f"Failed to enable TOTP: {str(e)}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail={
+                    "status": "error",
+                    "message": "Failed to enable TOTP",
+                    "action": "Please try again later",
+                },
+            )
+
+    async def verify_totp_login(
+        self, login_data: LoginTOTPRequestSchema, session: AsyncSession
+    ) -> User:
+        try:
+            user = await self.get_user_by_email(login_data.email, session)
+            if not user:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="Invalid credentials",
+                )
+
+            await self.check_user_lockout(user, session)
+
+            if not await self.verify_user_password(
+                login_data.password, user.hashed_password
+            ):
+                await self.increment_failed_login_attempts(user, session)
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="Invalid credentials",
+                )
+
+            if not user.is_active:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Account is not activated",
+                )
+
+            if not user.is_totp_enabled or not user.totp_secret:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Authenticator app is not enabled for this account.",
+                )
+
+            # Decrypt and verify TOTP
+            raw_secret = decrypt_totp_secret(user.totp_secret)
+            totp = pyotp.TOTP(raw_secret)
+
+            if not totp.verify(login_data.totp_code):
+                await self.increment_failed_login_attempts(user, session)
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="Invalid Authenticator code",
+                )
+
+            # Success! Reset failed attempts and return user
+            await self.reset_user_state(user, session, clear_otp=True, log_action=True)
+            return user
+        except Exception as e:
+            logger.error(f"Failed to verify TOTP login: {str(e)}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail={
+                    "status": "error",
+                    "message": "Failed to verify TOTP login",
+                    "action": "Please try again later",
+                },
+            )
 
 
 user_auth_service = UserAuthService()

@@ -1,9 +1,9 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Literal
-# from pathlib import Path
+from pathlib import Path
 
-# env_path = Path(__file__).parent.parent.parent.parent / ".envs" / ".env.local"
-env_path = "../../.envs/.env.local"
+env_path = Path(__file__).parent.parent.parent.parent / ".envs" / ".env.local"
+# env_path = "../../.envs/.env.local"
 
 
 class Settings(BaseSettings):
@@ -49,6 +49,7 @@ class Settings(BaseSettings):
     COOKIE_PATH: str = "/"
     SIGNING_KEY: str = ""
     PASSWORD_RESET_TOKEN_EXPIRATION_MINUTES: int = 3 if ENVIRONMENT == "local" else 5
+    TOTP_ENCRYPTION_KEY: str = ""
 
 
 settings = Settings()

@@ -45,3 +45,6 @@ check-models:
 
 shell:
 	docker compose -f local.yml exec -it api bash
+
+exp-req:
+	docker compose -f local.yml exec -T api uv export --format requirements.txt > requirements.txt

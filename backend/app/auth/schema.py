@@ -120,3 +120,24 @@ class PasswordResetConfirmSchema(SQLModel):
                 },
             )
         return v
+
+
+class TOTPSetupRequestSchema(SQLModel):
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=40)
+
+
+class TOTPEnableRequestSchema(SQLModel):
+    email: EmailStr
+    otp: str = Field(min_length=6, max_length=6)
+
+
+class LoginTOTPRequestSchema(SQLModel):
+    email: EmailStr
+    password: str = Field(min_length=8, max_length=40)
+    totp_code: str = Field(min_length=6, max_length=6)
+
+
+class TOTPSetupResponseSchema(SQLModel):
+    secret: str
+    provisioning_uri: str  # Changed from qr_code_url

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Security Alert: Authenticator App Linked{% endblock %}
+
+{% block header %}Security Alert{% endblock %}
+
+{% block content %}
+<p>Hello,</p>
+
+<p>A Two-Factor Authenticator App (like Google or Microsoft Authenticator) was just successfully linked to your <strong>{{ site_name }}</strong> account.</p>
+
+<div style="background-color: #f8f9fa; border-left: 4px solid #17a2b8; padding: 15px; margin: 20px 0;">
+    <p style="margin: 0;"><strong>If you did this:</strong> You can safely ignore this email. Your account is now protected with Two-Factor Authentication.</p>
+</div>
+
+<div style="background-color: #fff3f3; border-left: 4px solid #dc3545; padding: 15px; margin: 20px 0;">
+    <p style="color: #dc3545; margin: 0;"><strong>If you did NOT do this:</strong> Your password has been compromised. Please contact support immediately to lock your account!</p>
+</div>
+
+<p>Thanks,<br>The {{ site_name }} Security Team</p>
+{% endblock %}

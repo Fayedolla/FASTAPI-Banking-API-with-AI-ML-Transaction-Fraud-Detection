@@ -24,6 +24,8 @@ class User(BaseUserSchema, table=True):
     otp_expiry_time: datetime | None = Field(
         default=None, sa_column=Column(pg.TIMESTAMP(timezone=True))
     )
+    totp_secret: str | None = Field(default=None, max_length=255)
+    is_totp_enabled: bool = Field(default=False)
     created_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
         sa_column=Column(

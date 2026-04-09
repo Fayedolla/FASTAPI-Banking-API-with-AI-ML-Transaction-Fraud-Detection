@@ -65,9 +65,12 @@ colorama==0.4.6 ; sys_platform == 'win32'
     # via
     #   click
     #   loguru
+    #   qrcode
     #   uvicorn
 cryptography==46.0.5
-    # via authlib
+    # via
+    #   authlib
+    #   banking-api
 dnspython==2.8.0
     # via email-validator
 email-validator==2.2.0
@@ -86,6 +89,8 @@ fastapi-mail==1.4.2
     # via banking-api
 fastar==0.8.0
     # via fastapi-cloud-cli
+fernet==1.0.1
+    # via banking-api
 flower==2.0.1
     # via banking-api
 greenlet==3.1.1
@@ -102,6 +107,7 @@ httptools==0.7.1
     # via uvicorn
 httpx==0.28.1
     # via
+    #   banking-api
     #   fastapi
     #   fastapi-cloud-cli
 humanize==4.15.0
@@ -149,6 +155,8 @@ psycopg-pool==3.3.0
     # via psycopg
 pwdlib==0.3.0
     # via banking-api
+pyaes==1.6.1
+    # via fernet
 pycparser==3.0 ; implementation_name != 'PyPy'
     # via cffi
 pydantic==2.12.5
@@ -172,6 +180,8 @@ pygments==2.19.2
     # via rich
 pyjwt==2.10.1
     # via banking-api
+pyotp==2.9.0
+    # via banking-api
 python-dateutil==2.9.0.post0
     # via celery
 python-dotenv==1.2.2
@@ -184,6 +194,8 @@ pytz==2026.1.post1
     # via flower
 pyyaml==6.0.3
     # via uvicorn
+qrcode==8.2
+    # via banking-api
 redis==5.0.3
     # via banking-api
 redisbeat==1.2.6

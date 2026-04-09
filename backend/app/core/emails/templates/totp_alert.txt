@@ -1,0 +1,16 @@
+{% extends "base.txt" %}
+
+{% block title %}Security Alert: Authenticator App Linked{% endblock %}
+
+{% block content %}
+Hello,
+
+A Two-Factor Authenticator App (like Google or Microsoft Authenticator) was just successfully linked to your {{ site_name }} account.
+
+If you did this: You can safely ignore this email. Your account is now protected with Two-Factor Authentication.
+
+If you did NOT do this: Your password has been compromised. Please contact support immediately to lock your account!
+
+Thanks,
+The {{ site_name }} Security Team
+{% endblock %}

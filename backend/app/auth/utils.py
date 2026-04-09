@@ -8,6 +8,8 @@ import jwt
 from datetime import datetime, timedelta, timezone
 import secrets
 from fastapi import Response
+from cryptography.fernet import Fernet
+
 
 _ph = PasswordHasher()
 
@@ -124,3 +126,18 @@ def create_password_reset_token(id: uuid.UUID) -> str:
     return jwt.encode(
         payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM
     )
+
+
+cipher_suite = Fernet(settings.TOTP_ENCRYPTION_KEY.encode())
+
+
+def encrypt_totp_secret(raw_secret: str) -> str:
+    """Encrypts the plain Base32 secret before saving to the database."""
+    # Convert string to bytes -> encrypt -> convert back to string for the DB
+    return cipher_suite.encrypt(raw_secret.encode()).decode()
+
+
+def decrypt_totp_secret(encrypted_secret: str) -> str:
+    """Decrypts the database garbage back into the plain Base32 secret."""
+    # Convert string to bytes -> decrypt -> convert back to string for pyotp
+    return cipher_suite.decrypt(encrypted_secret.encode()).decode()
